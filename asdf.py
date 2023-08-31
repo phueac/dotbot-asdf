@@ -111,7 +111,7 @@ class Brew(dotbot.Plugin):
         if self.asdf_location:
             command = "source %s && %s" % (self.asdf_location, command)
 
-        p = subprocess.Popen(command, cwd=self.cwd, shell=True, **kwargs)
+        p = subprocess.Popen(command, cwd=self.cwd, executable="/usr/bin/bash", shell=True, **kwargs)
         p.wait()
         output, output_err = p.communicate()
 
